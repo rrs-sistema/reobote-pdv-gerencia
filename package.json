@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "postinstall": "ng build"
+    "postinstall": "ng build --configuration production --aot"
   },
   "private": true,
   "dependencies": {
@@ -48,7 +48,6 @@
     "@angular/router": "^15.1.0",
     "@auth0/angular-jwt": "^2.1.2",
     "@types/jasmine": "~4.3.0",
-    "angular-cli-ghpages": "^1.0.5",
     "chart.js": "^4.2.1",
     "express": "^4.18.2",
     "jasmine-core": "~4.5.0",
