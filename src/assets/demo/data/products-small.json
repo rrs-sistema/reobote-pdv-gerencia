@@ -1,0 +1,124 @@
+{
+	"data": [
+		{
+			"id": "1000",
+			"code": "f230fh0g3",
+			"name": "Rivaldo Roberto",
+			"description": "Product Description",
+			"image": "bamboo-watch.jpg",
+			"price": 50,
+			"category": "Premium",
+			"quantity": 24,
+			"inventoryStatus": "Mensal",
+			"rating": 5
+		},
+		{
+			"id": "1001",
+			"code": "nvklal433",
+			"name": "Kamilly Ketuly",
+			"description": "Product Description",
+			"image": "black-watch.jpg",
+			"price": 50,
+			"category": "Premium",
+			"quantity": 61,
+			"inventoryStatus": "Mensal",
+			"rating": 4
+		},
+		{
+			"id": "1002",
+			"code": "zz21cz3c1",
+			"name": "Rosineide Avelino",
+			"description": "Product Description",
+			"image": "blue-band.jpg",
+			"price": 500,
+			"category": "NFCe",
+			"quantity": 2,
+			"inventoryStatus": "Anual",
+			"rating": 3
+		},
+		{
+			"id": "1003",
+			"code": "244wgerg2",
+			"name": "Washington Santos",
+			"description": "Product Description",
+			"image": "blue-t-shirt.jpg",
+			"price": 75,
+			"category": "NFCe",
+			"quantity": 25,
+			"inventoryStatus": "Mensal",
+			"rating": 5
+		},
+		{
+			"id": "1004",
+			"code": "h456wer53",
+			"name": "Gabriela Silva",
+			"description": "Product Description",
+			"image": "bracelet.jpg",
+			"price": 50,
+			"category": "Premium",
+			"quantity": 73,
+			"inventoryStatus": "Semestral",
+			"rating": 4
+		},
+		{
+			"id": "1005",
+			"code": "av2231fwg",
+			"name": "Carla Gomes",
+			"description": "Product Description",
+			"image": "brown-purse.jpg",
+			"price": 75,
+			"category": "NFCe",
+			"quantity": 0,
+			"inventoryStatus": "Semestral",
+			"rating": 4
+		},
+		{
+			"id": "1006",
+			"code": "bib36pfvm",
+			"name": "Chakra Gabriela Silva",
+			"description": "Product Description",
+			"image": "chakra-bracelet.jpg",
+			"price": 75,
+			"category": "NFCe",
+			"quantity": 5,
+			"inventoryStatus": "Mensal",
+			"rating": 3
+		},
+		{
+			"id": "1007",
+			"code": "mbvjkgip5",
+			"name": "Alcione Paula",
+			"description": "Product Description",
+			"image": "galaxy-earrings.jpg",
+			"price": 75,
+			"category": "NFCe",
+			"quantity": 23,
+			"inventoryStatus": "Mensal",
+			"rating": 5
+		},
+		{
+			"id": "1008",
+			"code": "vbb124btr",
+			"name": "Paulo Jose",
+			"description": "Product Description",
+			"image": "game-controller.jpg",
+			"price": 220,
+			"category": "Premium",
+			"quantity": 2,
+			"inventoryStatus": "Semestral",
+			"rating": 4
+		},
+		{
+			"id": "1009",
+			"code": "cm230f032",
+			"name": "Oseias Santos",
+			"description": "Product Description",
+			"image": "gaming-set.jpg",
+			"price": 400,
+			"category": "Premium",
+			"quantity": 50,
+			"inventoryStatus": "Anual",
+			"rating": 3
+		}
+	]
+}
