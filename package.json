@@ -1,15 +1,14 @@
 {
   "name": "reobote-pdv-gerencia",
-  "main": "index.js",
   "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy:ghdocs": "ng build --prod --output-path docs --base-href /reobote-pdv-gerencia/",
-    "heroku-postbuild": "ng build --configuration production --aot"
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -25,7 +24,7 @@
     "@angular/router": "^15.1.0",
     "@auth0/angular-jwt": "^2.1.2",
     "chart.js": "^4.2.1",
-    "express": "^4.17.2",
+    "express": "^4.17.1",
     "primeflex": "^3.3.0",
     "primeicons": "^6.0.1",
     "primeng": "^15.2.0",
@@ -51,7 +50,7 @@
     "@auth0/angular-jwt": "^2.1.2",
     "@types/jasmine": "~4.3.0",
     "chart.js": "^4.2.1",
-    "express": "^4.17.2",
+    "express": "^4.17.1",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
