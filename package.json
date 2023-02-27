@@ -4,11 +4,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "postinstall": "ng build --configuration production --aot"
+    "deploy:ghdocs": "ng build --prod --output-path docs --base-href /reobote-pdv-gerencia/",
+    "heroku-postbuild": "ng build --configuration production --aot"
   },
   "private": true,
   "dependencies": {
