@@ -1,11 +1,9 @@
-const express = require('express');
-const path = require('path');
-const app = express();
-const appName = 'reobote-pdv-gerencia'
+let express = require('express');
+let app = express();
 
-app.use(express.static(__dirname + `/dist/${appName}`));
+app.use(express.static(__dirname+'/dist/reobote-pdv-gerencia'));
 app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname + `/dist/${appName}/index.html`));
+  res.sendFile(__dirname + '/dist/reobote-pdv-gerencia/index.html');
 });
 
 app.listen(process.env.PORT || 4200);
