@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
 
 import { UpdateAssinaturaService } from '../../service/update-assinatura.service';
-import { LayoutService } from '../../service/app.layout.service';
 import { ResumoPlanoAssinado } from '../../model/ResumoPlanoAssinado';
+import { LayoutService } from '../../service/app.layout.service';
 
 @Component({
   selector: 'app-pagamento-viewer',
@@ -25,6 +25,7 @@ export class PagamentoViewerComponent {
     this.paymentType = this.route.snapshot.queryParams['payment_type'];
   }
   ngOnInit(): void {
+    console.log(`ENTROU NA PAGINA DE RETORNO DE PAGAMENTO PAYMENT_ID: ${this.paymentId} - PREFERENCE_ID: ${this.preferenceId} - PAYMENT_TYPE: ${this.paymentType}`);
     if (this.paymentId != null && this.paymentId != 'undefined' && this.preferenceId != null && this.preferenceId != 'undefined') {
       this.assinaturaService.atualizar(this.paymentId, this.paymentType, this.preferenceId).then(data => {
         this.resumoPlano.codigo = data['codigo'];
@@ -36,6 +37,8 @@ export class PagamentoViewerComponent {
         this.showInfoViaToast();
       }
       );
+    } else {
+      console.log('NÃO OS DADOS DE PAGAMENTOS PARA O SERVIDOR');
     }
   }
 
