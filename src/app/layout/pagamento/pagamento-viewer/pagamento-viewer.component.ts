@@ -5,6 +5,7 @@ import { MessageService } from 'primeng/api';
 import { UpdateAssinaturaService } from '../../service/update-assinatura.service';
 import { ResumoPlanoAssinado } from '../../model/ResumoPlanoAssinado';
 import { LayoutService } from '../../service/app.layout.service';
+import { TesteServidorService } from '../../service/teste-servidor.service';
 
 @Component({
   selector: 'app-pagamento-viewer',
@@ -19,12 +20,19 @@ export class PagamentoViewerComponent {
   resumoPlano: ResumoPlanoAssinado = new ResumoPlanoAssinado();
 
   constructor(public layoutService: LayoutService, public assinaturaService: UpdateAssinaturaService,
+    public testeServidorService: TesteServidorService,
     private route: ActivatedRoute, private messageService: MessageService) {
     this.paymentId = this.route.snapshot.queryParams['payment_id'];
     this.preferenceId = this.route.snapshot.queryParams['preference_id'];
     this.paymentType = this.route.snapshot.queryParams['payment_type'];
   }
   ngOnInit(): void {
+    console.log('ENTRANDO NA PAGINA HOME DO REOBOTE PDV');
+    this.testeServidorService.welcomeReobotePdv().then(data => {
+      console.log('OPS - AGORA SIM ENTROU NA PAGINA HOME DO REOBOTE PDV');
+    }
+    );
+
     console.log(`ENTROU NA PAGINA DE RETORNO DE PAGAMENTO PAYMENT_ID: ${this.paymentId} - PREFERENCE_ID: ${this.preferenceId} - PAYMENT_TYPE: ${this.paymentType}`);
     if (this.paymentId != null && this.paymentId != 'undefined' && this.preferenceId != null && this.preferenceId != 'undefined') {
       this.assinaturaService.atualizar(this.paymentId, this.paymentType, this.preferenceId).then(data => {
