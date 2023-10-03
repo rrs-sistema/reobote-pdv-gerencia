@@ -20,6 +20,11 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.post('/retorno-pagamento', urlencodedParser, function (req, res) {
   id = Number(req.body.id);
   topic = String(req.body.topic);
+
+  console.log('REQUEST --> ' + req);
+  console.log('REQUEST BODY --> ' + req.body);
+
+
   console.log('response - id:', id);
   console.log('response - topic:', topic);
   response = {
