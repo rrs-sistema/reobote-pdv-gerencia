@@ -24,8 +24,8 @@ app.post('/retorno-pagamento', urlencodedParser, function (req, res) {
   res.setHeader('Content-Type', 'application/json');
 
   console.log('response - JSON :', JSON.stringify({
-    id: req.body.id || null,
-    topic: req.body.topic || null
+    body: req.body || null,
+    params: req.params || null
   }));
 
 
