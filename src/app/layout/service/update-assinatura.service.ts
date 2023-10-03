@@ -20,7 +20,7 @@ export class UpdateAssinaturaService {
   async atualizar(id: any, topic: any,) {
     var valoresParametros = `?topic=${topic}&id=${id}`;
     //https://15.235.55.109:10180/retorno-pagamento?topic=payment&id=123456
-    var urlAPI = `${this.apiUrl}/mercado-pago?${valoresParametros}`;
+    var urlAPI = `${this.apiUrl}${valoresParametros}`;
     const res = await this.httpClient.get<any>(urlAPI)
       .toPromise();
     //const data = res as ResumoPlanoAssinado;

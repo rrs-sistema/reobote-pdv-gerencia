@@ -25,6 +25,7 @@ import { PagamentoViewerComponent } from './layout/pagamento/pagamento-viewer/pa
       { path: 'landing', loadChildren: () => import('./demo/components/landing/landing.module').then(m => m.LandingModule) },
       { path: 'notfound', component: NotfoundComponent },
       { path: 'retorno-pagamento', component: PagamentoViewerComponent },
+      { path: 'pagamento', component: PagamentoViewerComponent },
       { path: '**', redirectTo: '/notfound' },
     ], { scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled', onSameUrlNavigation: 'reload' })
   ],

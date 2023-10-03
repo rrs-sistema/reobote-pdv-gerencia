@@ -24,15 +24,9 @@ export class PagamentoViewerComponent {
     this.id = this.route.snapshot.queryParams['id'];
   }
   ngOnInit(): void {
-    console.log('ENTRANDO NA PAGINA HOME DO REOBOTE PDV');
-    this.testeServidorService.welcomeReobotePdv().then(data => {
-      console.log('OPS - AGORA SIM ENTROU NA PAGINA HOME DO REOBOTE PDV');
-    }
-    );
-
-    console.log(`ENTROU NA PAGINA DE RETORNO DE PAGAMENTO PAYMENT_ID: ${this.id} - TOPIC: ${this.topic}`);
     if (this.id != null && this.id != 'undefined') {
       this.assinaturaService.atualizar(this.id, this.topic).then(data => {
+        console.log(`ENTROU NA PAGINA DE RETORNO DE PAGAMENTO PAYMENT_ID: ${this.id} - TOPIC: ${this.topic}`);
         this.showInfoViaToast();
       }
       );
