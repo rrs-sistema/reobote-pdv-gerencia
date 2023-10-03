@@ -21,12 +21,17 @@ app.post('/retorno-pagamento', urlencodedParser, function (req, res) {
   id = Number(req.body.id);
   topic = String(req.body.topic);
 
-  console.log('REQUEST --> ' + req);
-  console.log('REQUEST BODY --> ' + req.body);
+  res.setHeader('Content-Type', 'application/json');
+
+  console.log('response - JSON :', JSON.stringify({
+    id: req.body.id || null,
+    topic: req.body.topic || null
+  }));
 
 
   console.log('response - id:', id);
   console.log('response - topic:', topic);
+
   response = {
     id: req.body.id,
     topic: req.body.topic,
