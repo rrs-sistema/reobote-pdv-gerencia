@@ -13,18 +13,15 @@ import { TesteServidorService } from '../../service/teste-servidor.service';
   styleUrls: ['./pagamento-viewer.component.scss']
 })
 export class PagamentoViewerComponent {
-  paymentId: any;
-  preferenceId: any;
-  paymentType: any;
-  codigoPagamento: any = '';
+  topic: any;
+  id: any;
   resumoPlano: ResumoPlanoAssinado = new ResumoPlanoAssinado();
 
   constructor(public layoutService: LayoutService, public assinaturaService: UpdateAssinaturaService,
     public testeServidorService: TesteServidorService,
     private route: ActivatedRoute, private messageService: MessageService) {
-    this.paymentId = this.route.snapshot.queryParams['payment_id'];
-    this.preferenceId = this.route.snapshot.queryParams['preference_id'];
-    this.paymentType = this.route.snapshot.queryParams['payment_type'];
+    this.topic = this.route.snapshot.queryParams['topic'];
+    this.id = this.route.snapshot.queryParams['id'];
   }
   ngOnInit(): void {
     console.log('ENTRANDO NA PAGINA HOME DO REOBOTE PDV');
@@ -33,15 +30,9 @@ export class PagamentoViewerComponent {
     }
     );
 
-    console.log(`ENTROU NA PAGINA DE RETORNO DE PAGAMENTO PAYMENT_ID: ${this.paymentId} - PREFERENCE_ID: ${this.preferenceId} - PAYMENT_TYPE: ${this.paymentType}`);
-    if (this.paymentId != null && this.paymentId != 'undefined' && this.preferenceId != null && this.preferenceId != 'undefined') {
-      this.assinaturaService.atualizar(this.paymentId, this.paymentType, this.preferenceId).then(data => {
-        this.resumoPlano.codigo = data['codigo'];
-        this.resumoPlano.modulo = data['modulo'];
-        this.resumoPlano.plano = data['plano'];
-        this.resumoPlano.valor = data['valor'];
-        this.resumoPlano.mensagem = data['mensagem'];
-        this.codigoPagamento = this.paymentId;
+    console.log(`ENTROU NA PAGINA DE RETORNO DE PAGAMENTO PAYMENT_ID: ${this.id} - TOPIC: ${this.topic}`);
+    if (this.id != null && this.id != 'undefined') {
+      this.assinaturaService.atualizar(this.id, this.topic).then(data => {
         this.showInfoViaToast();
       }
       );
@@ -52,7 +43,7 @@ export class PagamentoViewerComponent {
 
   showInfoViaToast() {
     if (this.resumoPlano.sucesso === true) {
-      var informacoes = `${this.resumoPlano.mensagem} - Código do Pagamento: ${this.paymentId}`;
+      var informacoes = `${this.resumoPlano.mensagem} - Código do Pagamento: ${this.id}`;
       this.messageService.add({ key: 'msgRetornoPagamento', severity: 'success', summary: 'Atenção! Informações do pagamento', detail: informacoes });
     } else {
       var informacoes = this.resumoPlano.mensagem;

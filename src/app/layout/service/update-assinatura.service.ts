@@ -17,8 +17,9 @@ export class UpdateAssinaturaService {
     this.apiUrl = `${environment.apiUrl}/retorno-pagamento`;
   }
 
-  async atualizar(paymentId: any, paymentType: any, preferenceId: any) {
-    var valoresParametros = `&payment_id=${paymentId}&payment_type=${paymentType}&preference_id=${preferenceId}`;
+  async atualizar(id: any, topic: any,) {
+    var valoresParametros = `?topic=${topic}&id=${id}`;
+    //https://15.235.55.109:10180/retorno-pagamento?topic=payment&id=123456
     var urlAPI = `${this.apiUrl}/mercado-pago?${valoresParametros}`;
     const res = await this.httpClient.get<any>(urlAPI)
       .toPromise();

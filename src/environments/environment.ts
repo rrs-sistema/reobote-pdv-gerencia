@@ -1,8 +1,8 @@
 export const environment = {
   production: false,
   //apiUrl: 'http://127.0.0.1:8080',//Para local
-  apiUrl: 'http://ec2-52-87-219-196.compute-1.amazonaws.com:8080/reobote',//Para Produção
+  apiUrl: 'http://15.235.55.109:10180',//Para Produção
 
-  tokenWhitelistedDomains: [new RegExp('http://ec2-52-87-219-196.compute-1.amazonaws.com:8080')],
+  tokenWhitelistedDomains: [new RegExp('http://15.235.55.109:10180')],
   tokenBlacklistedRoutes: [new RegExp('\/oauth\/token')]
 };
