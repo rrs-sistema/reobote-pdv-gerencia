@@ -18,18 +18,16 @@ var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.post('/retorno-pagamento', urlencodedParser, function (req, res) {
-  id = Number(req.body.id);
-  topic = String(req.body.topic);
+  id = Number(req.query.id);
+  topic = req.query.topic;
 
   res.setHeader('Content-Type', 'application/json');
 
   console.log('response - JSON :', JSON.stringify({
-    body: req.body || null,
-    params: req.params || null,
+    query: req.query || null,
     queryId: req.query.id || null,
     queryName: req.query.name || null
   }));
-
 
   console.log('response - id:', id);
   console.log('response - topic:', topic);
