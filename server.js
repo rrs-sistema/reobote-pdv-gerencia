@@ -23,15 +23,6 @@ app.post('/retorno-pagamento', urlencodedParser, function (req, res) {
 
   res.setHeader('Content-Type', 'application/json');
 
-  console.log('response - JSON :', JSON.stringify({
-    query: req.query || null,
-    queryId: req.query.id || null,
-    queryName: req.query.name || null
-  }));
-
-  console.log('response - id:', id);
-  console.log('response - topic:', topic);
-
   response = {
     id: req.body.id,
     topic: req.body.topic,
@@ -41,7 +32,7 @@ app.post('/retorno-pagamento', urlencodedParser, function (req, res) {
 });
 
 const enviarPagamento = () => {
-  var urlPagamento = `http://15.235.55.109:10180/retorno-pagamento?topic=${topic}&id=${id}`;
+  var urlPagamento = `http://15.235.55.109:10180/retorno-pagamento/notificao-ipn?topic=${topic}&id=${id}`;
 
   console.log('CHAMDNO A API DE PAGAMENTO --> ' + urlPagamento);
 
