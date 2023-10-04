@@ -1,7 +1,6 @@
 //Install express server
-const { log } = require('console');
 const express = require('express');
-const path = require('path');
+var request = require('request');
 
 var id = 0;
 var topic = '';
@@ -20,27 +19,17 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.post('/retorno-pagamento', urlencodedParser, function (req, res) {
   id = Number(req.query.id);
   topic = req.query.topic;
-
-  res.setHeader('Content-Type', 'application/json');
-
-  response = {
-    id: req.body.id,
-    topic: req.body.topic,
+  var urlPagamento = `http://15.235.55.109:10180/retorno-pagamento/notificao-ipn?topic=${topic}&id=${id}`;
+  var options = {
+    'method': 'POST',
+    'url': urlPagamento,
+    'headers': {}
   };
-  enviarPagamento();
+  request(options, function (error, response) {
+    if (error) throw new Error(error);
+  });
   res.end();
 });
-
-const enviarPagamento = () => {
-  var urlPagamento = `http://15.235.55.109:10180/retorno-pagamento/notificao-ipn?topic=${topic}&id=${id}`;
-
-  console.log('CHAMDNO A API DE PAGAMENTO --> ' + urlPagamento);
-
-  app.post(urlPagamento, urlencodedParser, function (req, res) {
-    console.log('RETORNO DO PAGAMENTO DA API:', res);
-    res.end();
-  });
-}
 
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 4200);
