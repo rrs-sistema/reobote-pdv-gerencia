@@ -16,7 +16,7 @@ app.get('/*', (req, res) =>
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-app.post('/retorno-pagamento', urlencodedParser, function (req, res) {
+app.post('/*', urlencodedParser, function (req, res) {
   id = Number(req.query.id);
   topic = req.query.topic;
   var urlPagamento = `http://15.235.55.109:10180/retorno-pagamento/notificao-ipn?topic=${topic}&id=${id}`;
