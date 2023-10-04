@@ -25,7 +25,9 @@ app.post('/retorno-pagamento', urlencodedParser, function (req, res) {
 
   console.log('response - JSON :', JSON.stringify({
     body: req.body || null,
-    params: req.params || null
+    params: req.params || null,
+    queryId: req.query.id || null,
+    queryName: req.query.name || null
   }));
 
 
